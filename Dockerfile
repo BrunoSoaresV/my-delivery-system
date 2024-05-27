@@ -1,56 +1,59 @@
-
-FROM node:latest AS backend
-
-
-WORKDIR /usr/src/app/backend
-
-
-COPY backend/package*.json ./
-
-
-RUN npm install
-
-
-COPY backend/ .
-
-
-EXPOSE 5000
-
-
-CMD ["npm", "start"]
-
-
+# Estágio 1: Construir o frontend
 FROM node:latest AS frontend
 
-
+# Definir o diretório de trabalho para o frontend
 WORKDIR /usr/src/app/frontend
 
-
+# Copiar o arquivo package.json e package-lock.json para o frontend
 COPY frontend/package*.json ./
 
-
+# Instalar as dependências do frontend
 RUN npm install
 
-
+# Copiar todo o código fonte do frontend
 COPY frontend/ .
 
+# Mudar as permissões do diretório do frontend para que o usuário possa executar comandos
+RUN chmod -R 777 .
 
+# Construir o frontend
 RUN npm run build
 
+# Estágio 2: Construir o backend
+FROM node:latest AS backend
 
-FROM node:latest
+# Definir o diretório de trabalho para o backend
+WORKDIR /usr/src/app/backend
 
+# Copiar o arquivo package.json e package-lock.json para o backend
+COPY backend/package*.json ./
 
-WORKDIR /usr/src/app
+# Instalar as dependências do backend
+RUN npm install
 
+# Copiar todo o código fonte do backend
+COPY backend/ .
 
-COPY --from=backend /usr/src/app/backend .
+# Mudar as permissões do diretório do backend para que o usuário possa executar comandos
+RUN chmod -R 777 .
 
+# Expor a porta do backend (se necessário)
+# EXPOSE 5000
 
-COPY --from=frontend /usr/src/app/frontend/build ./frontend
+# Comando para iniciar o backend (você pode modificar conforme necessário)
+# CMD ["npm", "start"]
 
+# Estágio 3: Construir a imagem final
+FROM nginx:latest
 
-EXPOSE 5000
+# Copiar os arquivos de construção do frontend para o diretório do nginx
+COPY --from=frontend /usr/src/app/frontend/build /usr/share/nginx/html
 
+# Copiar a configuração personalizada do nginx, se necessário
+# COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-CMD ["node", "index.js"]
+# Expor a porta do nginx (se necessário)
+# EXPOSE 80
+
+# Comando para iniciar o nginx (não é necessário modificar)
+CMD ["nginx", "-g", "daemon off;"]
