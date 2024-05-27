@@ -1,0 +1,14 @@
+{
+  "name": "my-delivery-system",
+  "version": "1.0.0",
+  "description": "The Interplanetary Delivery System is a personal project exploring the possibilities of automated delivery between Earth and Mars. Inspired by the advancements in space exploration and the potential for interplanetary commerce, this project aims to simulate the logistics involved in transporting goods and supplies across vast distances in space. While still in its experimental phase, the project showcases the use of modern web technologies to create a simulated delivery system interface.",
+  "main": "index.js",
+  "scripts": {
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start:backend": "npm start --prefix backend",
+    "start:frontend": "npm start --prefix frontend"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
