@@ -37,11 +37,11 @@ COPY backend/ .
 # Mudar as permissões do diretório do backend para que o usuário possa executar comandos
 RUN chmod -R 777 .
 
-# Expor a porta do backend (se necessário)
-# EXPOSE 5000
+# Expor a porta do backend
+EXPOSE 5000
 
-# Comando para iniciar o backend (você pode modificar conforme necessário)
-# CMD ["npm", "start"]
+# Comando para iniciar o backend
+CMD ["npm", "start"]
 
 # Estágio 3: Construir a imagem final
 FROM nginx:latest
@@ -52,8 +52,8 @@ COPY --from=frontend /usr/src/app/frontend/build /usr/share/nginx/html
 # Copiar a configuração personalizada do nginx, se necessário
 # COPY nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Expor a porta do nginx (se necessário)
-# EXPOSE 80
+# Expor a porta do nginx
+EXPOSE 3000
 
-# Comando para iniciar o nginx (não é necessário modificar)
+# Comando para iniciar o nginx
 CMD ["nginx", "-g", "daemon off;"]
