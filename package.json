@@ -1,15 +1,25 @@
 {
   "name": "my-delivery-system",
   "version": "1.0.0",
-  "description": "The Interplanetary Delivery System is a personal project exploring the possibilities of automated delivery between Earth and Mars. Inspired by the advancements in space exploration and the potential for interplanetary commerce, this project aims to simulate the logistics involved in transporting goods and supplies across vast distances in space. While still in its experimental phase, the project showcases the use of modern web technologies to create a simulated delivery system interface.",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "cd backend && npm start",
-    "start:frontend": "cd frontend && npm start",
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+    "start:backend": "node backend/server.js",
+    "start:frontend": "react-scripts start",
+    "build": "concurrently \"npm run build:backend\" \"npm run build:frontend\"",
+    "build:backend": "echo \"Backend build step (if any)\"",
+    "build:frontend": "react-scripts build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "axios": "^0.27.2",
+    "concurrently": "^7.2.1",
+    "express": "^4.18.1",
+    "pg": "^8.7.3",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.3.0"
+  },
+  "devDependencies": {
+    "react-scripts": "5.0.1"
+  }
 }
