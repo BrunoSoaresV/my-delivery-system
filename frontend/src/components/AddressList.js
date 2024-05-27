@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddressList = () => {
   const [addresses, setAddresses] = useState([]);
@@ -9,7 +9,7 @@ const AddressList = () => {
   useEffect(() => {
     async function fetchAddresses() {
       try {
-        const response = await axios.get('http://localhost:5000/api/addresses');
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/addresses`);
         setAddresses(response.data);
       } catch (error) {
         console.error('Error fetching addresses:', error);
@@ -20,7 +20,7 @@ const AddressList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/addresses/${id}`);
+      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/addresses/${id}`);
       setAddresses(addresses.filter((address) => address.id !== id));
     } catch (error) {
       console.error('Error deleting address:', error);

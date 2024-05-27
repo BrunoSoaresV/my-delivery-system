@@ -1,15 +1,15 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; 
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AddressForm from '../components/AddressForm';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const CreateAddress = () => {
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
 
   const saveAddress = async (address) => {
     try {
-      await axios.post('http://localhost:5000/api/addresses', address);
+      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/addresses`, address);
       navigate('/');
     } catch (error) {
       console.error('Error saving address:', error);

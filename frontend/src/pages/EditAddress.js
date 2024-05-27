@@ -2,17 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import AddressForm from '../components/AddressForm';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const EditAddress = () => {
   const { id } = useParams();
-  const history = useNavigate(); 
+  const history = useNavigate();
   const [address, setAddress] = useState(null);
 
   useEffect(() => {
     const fetchAddress = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/addresses/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/addresses/${id}`);
         setAddress(response.data);
       } catch (error) {
         console.error('Error fetching address:', error);
@@ -24,7 +24,7 @@ const EditAddress = () => {
 
   const saveAddress = async (updatedAddress) => {
     try {
-      await axios.put(`http://localhost:5000/api/addresses/${id}`, updatedAddress);
+      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/addresses/${id}`, updatedAddress);
       history('/');
     } catch (error) {
       console.error('Error updating address:', error);
