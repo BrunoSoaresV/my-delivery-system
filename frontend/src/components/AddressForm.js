@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-
+import React, { useState } from 'react'; 
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 const AddressForm = ({ initialAddress, onSave }) => {
   const [address, setAddress] = useState(initialAddress || { lot: '' });
 
@@ -17,11 +17,12 @@ const AddressForm = ({ initialAddress, onSave }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="lot">Lote:</label>
+    <form onSubmit={handleSubmit} className="container">
+      <div className="mb-3">
+        <label htmlFor="lot" className="form-label">Lote:</label>
         <input
           type="text"
+          className="form-control"
           id="lot"
           name="lot"
           value={address.lot}
@@ -31,7 +32,7 @@ const AddressForm = ({ initialAddress, onSave }) => {
           title="Lote deve ter 4 dígitos"
         />
       </div>
-      <button type="submit">Salvar</button>
+      <button type="submit" className="btn btn-primary">Salvar</button>
     </form>
   );
 };
