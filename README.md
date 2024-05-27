@@ -26,6 +26,3 @@ To explore the Interplanetary Delivery System, follow these steps:
 2. Set up the backend by navigating to the backend directory and running `npm install` followed by `npm start`.
 3. Set up the frontend by navigating to the frontend directory and running `npm install` followed by `npm start`.
 4. Access the web interface in your browser and start exploring the simulated delivery system!
-
-## Feedback
-If you have any feedback or questions about the project, feel free to open an issue on GitHub or contact the project maintainer.
