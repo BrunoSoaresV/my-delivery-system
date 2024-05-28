@@ -1,18 +1,47 @@
 {
   "name": "my-delivery-system",
   "version": "1.0.0",
-  "description": "The Interplanetary Delivery System is a personal project exploring the possibilities of automated delivery between Earth and Mars. Inspired by the advancements in space exploration and the potential for interplanetary commerce, this project aims to simulate the logistics involved in transporting goods and supplies across vast distances in space. While still in its experimental phase, the project showcases the use of modern web technologies to create a simulated delivery system interface.",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
-    "start:backend": "cd backend && npm start",
-    "start:frontend": "cd frontend && npm start",
-    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+    "start:backend": "node backend/index.js", 
+    "start:frontend": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.29.3",
+    "@typescript-eslint/parser": "^4.29.3",
+    "axios": "^1.7.2",
+    "bootstrap": "^5.3.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "react-scripts": "^5.0.1",
+    "web-vitals": "^4.0.1"
+  },
   "devDependencies": {
-    "concurrently": "^8.2.2"
+    "@babel/plugin-proposal-json-strings": "deprecated",
+    "@babel/plugin-proposal-optional-catch-binding": "deprecated",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-proposal-unicode-property-regex": "deprecated",
+    "concurrently": "^7.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
