@@ -3,11 +3,6 @@
 ## Description
 The Interplanetary Delivery System is a personal project exploring the possibilities of automated delivery between Earth and Mars. Inspired by the advancements in space exploration and the potential for interplanetary commerce, this project aims to simulate the logistics involved in transporting goods and supplies across vast distances in space. While still in its experimental phase, the project showcases the use of modern web technologies to create a simulated delivery system interface.
 
-## Key Features
-- **Simulation of Interplanetary Logistics:** Simulates various aspects of the delivery process, including scheduling, route optimization, and cargo handling.
-- **Web-based Interface:** Provides a basic web interface for users to interact with the simulated delivery system, including placing delivery requests and tracking shipments.
-- **Realistic Data Representation:** Utilizes realistic data representation and visualization techniques to convey the complexity of interplanetary logistics in a simplified manner.
-- **Educational Purpose:** Designed primarily for educational purposes to illustrate the challenges and considerations involved in interplanetary transportation.
 
 ## Technologies Used
 - **Backend:** Node.js, Express.js, PostgreSQL
