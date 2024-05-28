@@ -4,12 +4,15 @@
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "start": "cd frontend && npm start",
+    "build": "cd frontend && npm run build",
+    "test": "cd frontend && npm test",
+    "eject": "cd frontend && npm eject",
     "start:backend": "node backend/index.js",
-    "start:frontend": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start:frontend": "cd frontend && npm start",
+    "build:frontend": "cd frontend && npm run build",
+    "test:frontend": "cd frontend && npm test",
+    "eject:frontend": "cd frontend && npm eject"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +22,11 @@
     "@typescript-eslint/parser": "^4.29.3",
     "axios": "^1.7.2",
     "bootstrap": "^5.3.3",
+    "express": "^4.19.2",
+    "pg": "^8.11.5",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.23.1",
-    "react-scripts": "^5.0.1",
-    "web-vitals": "^4.0.1"
+    "react-router-dom": "^6.23.1"
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
