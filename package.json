@@ -26,10 +26,7 @@
     "web-vitals": "^4.0.1"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-json-strings": "deprecated",
-    "@babel/plugin-proposal-optional-catch-binding": "deprecated",
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
-    "@babel/plugin-proposal-unicode-property-regex": "deprecated",
     "concurrently": "^7.0.0"
   },
   "browserslist": {
