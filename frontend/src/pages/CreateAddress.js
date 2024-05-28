@@ -9,7 +9,7 @@ const CreateAddress = () => {
 
   const saveAddress = async (address) => {
     try {
-      await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/addresses`, address);
+      await axios.post(`https://my-delivery-system.onrender.com/api/addresses`, address);
       navigate('/');
     } catch (error) {
       console.error('Error saving address:', error);

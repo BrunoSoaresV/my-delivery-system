@@ -12,7 +12,7 @@ const EditAddress = () => {
   useEffect(() => {
     const fetchAddress = async () => {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/addresses/${id}`);
+        const response = await axios.get(`https://my-delivery-system.onrender.com/api/addresses/${id}`);
         setAddress(response.data);
       } catch (error) {
         console.error('Error fetching address:', error);
@@ -24,7 +24,7 @@ const EditAddress = () => {
 
   const saveAddress = async (updatedAddress) => {
     try {
-      await axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/addresses/${id}`, updatedAddress);
+      await axios.put(`https://my-delivery-system.onrender.com/api/addresses/${id}`, updatedAddress);
       history('/');
     } catch (error) {
       console.error('Error updating address:', error);

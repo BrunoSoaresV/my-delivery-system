@@ -9,7 +9,7 @@ const AddressList = () => {
   useEffect(() => {
     async function fetchAddresses() {
       try {
-        const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/addresses`);
+        const response = await axios.get(`https://my-delivery-system.onrender.com/api/addresses`);
         setAddresses(response.data);
       } catch (error) {
         console.error('Error fetching addresses:', error);
@@ -20,7 +20,7 @@ const AddressList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/addresses/${id}`);
+      await axios.delete(`https://my-delivery-system.onrender.com/api/addresses/${id}`);
       setAddresses(addresses.filter((address) => address.id !== id));
     } catch (error) {
       console.error('Error deleting address:', error);
